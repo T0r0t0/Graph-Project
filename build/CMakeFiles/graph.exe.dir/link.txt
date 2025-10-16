@@ -1,1 +1,1 @@
-/usr/bin/c++ CMakeFiles/graph.exe.dir/code/main.cpp.o CMakeFiles/graph.exe.dir/code/verticeClass.cpp.o CMakeFiles/graph.exe.dir/code/graphClass.cpp.o -o /home/rob4/info/Graph-Project/graph.exe 
+/usr/bin/c++ CMakeFiles/graph.exe.dir/code/main.cpp.o CMakeFiles/graph.exe.dir/code/Edge.cpp.o CMakeFiles/graph.exe.dir/code/verticeClass.cpp.o CMakeFiles/graph.exe.dir/code/graphClass.cpp.o -o /home/rob4/info/Graph-Project/graph.exe 

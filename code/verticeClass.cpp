@@ -1,4 +1,6 @@
 #include "verticeClass.h"
+#include "Edge.h"
+#include <algorithm>
 
 VerticeClass::VerticeClass(): ID(0), x(0.0), y(0.0) {}
 

@@ -1,8 +1,7 @@
-CMakeFiles/graph.exe.dir/code/verticeClass.cpp.o: \
- /home/rob4/info/Graph-Project/code/verticeClass.cpp \
- /usr/include/stdc-predef.h \
- /home/rob4/info/Graph-Project/code/verticeClass.h \
- /usr/include/c++/14/string /usr/include/c++/14/bits/requires_hosted.h \
+CMakeFiles/graph.exe.dir/code/Edge.cpp.o: \
+ /home/rob4/info/Graph-Project/code/Edge.cpp /usr/include/stdc-predef.h \
+ /home/rob4/info/Graph-Project/code/Edge.h /usr/include/c++/14/string \
+ /usr/include/c++/14/bits/requires_hosted.h \
  /usr/include/x86_64-linux-gnu/c++/14/bits/c++config.h \
  /usr/include/x86_64-linux-gnu/c++/14/bits/os_defines.h \
  /usr/include/features.h /usr/include/features-time64.h \
@@ -121,18 +120,4 @@ CMakeFiles/graph.exe.dir/code/verticeClass.cpp.o: \
  /usr/include/c++/14/bits/memory_resource.h /usr/include/c++/14/cstddef \
  /usr/include/c++/14/bits/uses_allocator.h \
  /usr/include/c++/14/bits/uses_allocator_args.h /usr/include/c++/14/tuple \
- /usr/include/c++/14/bits/ranges_util.h /usr/include/c++/14/vector \
- /usr/include/c++/14/bits/stl_uninitialized.h \
- /usr/include/c++/14/bits/stl_vector.h \
- /usr/include/c++/14/bits/stl_bvector.h \
- /usr/include/c++/14/bits/vector.tcc \
- /home/rob4/info/Graph-Project/code/Edge.h /usr/include/c++/14/algorithm \
- /usr/include/c++/14/bits/stl_algo.h \
- /usr/include/c++/14/bits/algorithmfwd.h \
- /usr/include/c++/14/bits/stl_heap.h \
- /usr/include/c++/14/bits/uniform_int_dist.h \
- /usr/include/c++/14/bits/stl_tempbuf.h \
- /usr/include/c++/14/bits/ranges_algo.h \
- /usr/include/c++/14/bits/ranges_algobase.h \
- /usr/include/c++/14/pstl/glue_algorithm_defs.h \
- /usr/include/c++/14/pstl/execution_defs.h
+ /usr/include/c++/14/bits/ranges_util.h

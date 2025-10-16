@@ -7,6 +7,7 @@ set(CMAKE_RUNTIME_OUTPUT_DIRECTORY "${CMAKE_SOURCE_DIR}")
 
 add_executable(graph.exe 
     code/main.cpp
+    code/Edge.cpp
     code/verticeClass.cpp
     code/graphClass.cpp
     )

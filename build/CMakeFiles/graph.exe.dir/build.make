@@ -83,10 +83,24 @@ CMakeFiles/graph.exe.dir/code/main.cpp.s: cmake_force
 	@$(CMAKE_COMMAND) -E cmake_echo_color "--switch=$(COLOR)" --green "Compiling CXX source to assembly CMakeFiles/graph.exe.dir/code/main.cpp.s"
 	/usr/bin/c++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -S /home/rob4/info/Graph-Project/code/main.cpp -o CMakeFiles/graph.exe.dir/code/main.cpp.s
 
+CMakeFiles/graph.exe.dir/code/Edge.cpp.o: CMakeFiles/graph.exe.dir/flags.make
+CMakeFiles/graph.exe.dir/code/Edge.cpp.o: /home/rob4/info/Graph-Project/code/Edge.cpp
+CMakeFiles/graph.exe.dir/code/Edge.cpp.o: CMakeFiles/graph.exe.dir/compiler_depend.ts
+	@$(CMAKE_COMMAND) -E cmake_echo_color "--switch=$(COLOR)" --green --progress-dir=/home/rob4/info/Graph-Project/build/CMakeFiles --progress-num=$(CMAKE_PROGRESS_2) "Building CXX object CMakeFiles/graph.exe.dir/code/Edge.cpp.o"
+	/usr/bin/c++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -MD -MT CMakeFiles/graph.exe.dir/code/Edge.cpp.o -MF CMakeFiles/graph.exe.dir/code/Edge.cpp.o.d -o CMakeFiles/graph.exe.dir/code/Edge.cpp.o -c /home/rob4/info/Graph-Project/code/Edge.cpp
+
+CMakeFiles/graph.exe.dir/code/Edge.cpp.i: cmake_force
+	@$(CMAKE_COMMAND) -E cmake_echo_color "--switch=$(COLOR)" --green "Preprocessing CXX source to CMakeFiles/graph.exe.dir/code/Edge.cpp.i"
+	/usr/bin/c++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -E /home/rob4/info/Graph-Project/code/Edge.cpp > CMakeFiles/graph.exe.dir/code/Edge.cpp.i
+
+CMakeFiles/graph.exe.dir/code/Edge.cpp.s: cmake_force
+	@$(CMAKE_COMMAND) -E cmake_echo_color "--switch=$(COLOR)" --green "Compiling CXX source to assembly CMakeFiles/graph.exe.dir/code/Edge.cpp.s"
+	/usr/bin/c++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -S /home/rob4/info/Graph-Project/code/Edge.cpp -o CMakeFiles/graph.exe.dir/code/Edge.cpp.s
+
 CMakeFiles/graph.exe.dir/code/verticeClass.cpp.o: CMakeFiles/graph.exe.dir/flags.make
 CMakeFiles/graph.exe.dir/code/verticeClass.cpp.o: /home/rob4/info/Graph-Project/code/verticeClass.cpp
 CMakeFiles/graph.exe.dir/code/verticeClass.cpp.o: CMakeFiles/graph.exe.dir/compiler_depend.ts
-	@$(CMAKE_COMMAND) -E cmake_echo_color "--switch=$(COLOR)" --green --progress-dir=/home/rob4/info/Graph-Project/build/CMakeFiles --progress-num=$(CMAKE_PROGRESS_2) "Building CXX object CMakeFiles/graph.exe.dir/code/verticeClass.cpp.o"
+	@$(CMAKE_COMMAND) -E cmake_echo_color "--switch=$(COLOR)" --green --progress-dir=/home/rob4/info/Graph-Project/build/CMakeFiles --progress-num=$(CMAKE_PROGRESS_3) "Building CXX object CMakeFiles/graph.exe.dir/code/verticeClass.cpp.o"
 	/usr/bin/c++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -MD -MT CMakeFiles/graph.exe.dir/code/verticeClass.cpp.o -MF CMakeFiles/graph.exe.dir/code/verticeClass.cpp.o.d -o CMakeFiles/graph.exe.dir/code/verticeClass.cpp.o -c /home/rob4/info/Graph-Project/code/verticeClass.cpp
 
 CMakeFiles/graph.exe.dir/code/verticeClass.cpp.i: cmake_force
@@ -100,7 +114,7 @@ CMakeFiles/graph.exe.dir/code/verticeClass.cpp.s: cmake_force
 CMakeFiles/graph.exe.dir/code/graphClass.cpp.o: CMakeFiles/graph.exe.dir/flags.make
 CMakeFiles/graph.exe.dir/code/graphClass.cpp.o: /home/rob4/info/Graph-Project/code/graphClass.cpp
 CMakeFiles/graph.exe.dir/code/graphClass.cpp.o: CMakeFiles/graph.exe.dir/compiler_depend.ts
-	@$(CMAKE_COMMAND) -E cmake_echo_color "--switch=$(COLOR)" --green --progress-dir=/home/rob4/info/Graph-Project/build/CMakeFiles --progress-num=$(CMAKE_PROGRESS_3) "Building CXX object CMakeFiles/graph.exe.dir/code/graphClass.cpp.o"
+	@$(CMAKE_COMMAND) -E cmake_echo_color "--switch=$(COLOR)" --green --progress-dir=/home/rob4/info/Graph-Project/build/CMakeFiles --progress-num=$(CMAKE_PROGRESS_4) "Building CXX object CMakeFiles/graph.exe.dir/code/graphClass.cpp.o"
 	/usr/bin/c++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -MD -MT CMakeFiles/graph.exe.dir/code/graphClass.cpp.o -MF CMakeFiles/graph.exe.dir/code/graphClass.cpp.o.d -o CMakeFiles/graph.exe.dir/code/graphClass.cpp.o -c /home/rob4/info/Graph-Project/code/graphClass.cpp
 
 CMakeFiles/graph.exe.dir/code/graphClass.cpp.i: cmake_force
@@ -114,6 +128,7 @@ CMakeFiles/graph.exe.dir/code/graphClass.cpp.s: cmake_force
 # Object files for target graph.exe
 graph_exe_OBJECTS = \
 "CMakeFiles/graph.exe.dir/code/main.cpp.o" \
+"CMakeFiles/graph.exe.dir/code/Edge.cpp.o" \
 "CMakeFiles/graph.exe.dir/code/verticeClass.cpp.o" \
 "CMakeFiles/graph.exe.dir/code/graphClass.cpp.o"
 
@@ -121,11 +136,12 @@ graph_exe_OBJECTS = \
 graph_exe_EXTERNAL_OBJECTS =
 
 /home/rob4/info/Graph-Project/graph.exe: CMakeFiles/graph.exe.dir/code/main.cpp.o
+/home/rob4/info/Graph-Project/graph.exe: CMakeFiles/graph.exe.dir/code/Edge.cpp.o
 /home/rob4/info/Graph-Project/graph.exe: CMakeFiles/graph.exe.dir/code/verticeClass.cpp.o
 /home/rob4/info/Graph-Project/graph.exe: CMakeFiles/graph.exe.dir/code/graphClass.cpp.o
 /home/rob4/info/Graph-Project/graph.exe: CMakeFiles/graph.exe.dir/build.make
 /home/rob4/info/Graph-Project/graph.exe: CMakeFiles/graph.exe.dir/link.txt
-	@$(CMAKE_COMMAND) -E cmake_echo_color "--switch=$(COLOR)" --green --bold --progress-dir=/home/rob4/info/Graph-Project/build/CMakeFiles --progress-num=$(CMAKE_PROGRESS_4) "Linking CXX executable /home/rob4/info/Graph-Project/graph.exe"
+	@$(CMAKE_COMMAND) -E cmake_echo_color "--switch=$(COLOR)" --green --bold --progress-dir=/home/rob4/info/Graph-Project/build/CMakeFiles --progress-num=$(CMAKE_PROGRESS_5) "Linking CXX executable /home/rob4/info/Graph-Project/graph.exe"
 	$(CMAKE_COMMAND) -E cmake_link_script CMakeFiles/graph.exe.dir/link.txt --verbose=$(VERBOSE)
 
 # Rule to build all files generated by this target.

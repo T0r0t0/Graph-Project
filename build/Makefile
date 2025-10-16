@@ -129,6 +129,30 @@ graph.exe/fast:
 	$(MAKE) $(MAKESILENT) -f CMakeFiles/graph.exe.dir/build.make CMakeFiles/graph.exe.dir/build
 .PHONY : graph.exe/fast
 
+code/Edge.o: code/Edge.cpp.o
+.PHONY : code/Edge.o
+
+# target to build an object file
+code/Edge.cpp.o:
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/graph.exe.dir/build.make CMakeFiles/graph.exe.dir/code/Edge.cpp.o
+.PHONY : code/Edge.cpp.o
+
+code/Edge.i: code/Edge.cpp.i
+.PHONY : code/Edge.i
+
+# target to preprocess a source file
+code/Edge.cpp.i:
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/graph.exe.dir/build.make CMakeFiles/graph.exe.dir/code/Edge.cpp.i
+.PHONY : code/Edge.cpp.i
+
+code/Edge.s: code/Edge.cpp.s
+.PHONY : code/Edge.s
+
+# target to generate assembly for a file
+code/Edge.cpp.s:
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/graph.exe.dir/build.make CMakeFiles/graph.exe.dir/code/Edge.cpp.s
+.PHONY : code/Edge.cpp.s
+
 code/graphClass.o: code/graphClass.cpp.o
 .PHONY : code/graphClass.o
 
@@ -210,6 +234,9 @@ help:
 	@echo "... edit_cache"
 	@echo "... rebuild_cache"
 	@echo "... graph.exe"
+	@echo "... code/Edge.o"
+	@echo "... code/Edge.i"
+	@echo "... code/Edge.s"
 	@echo "... code/graphClass.o"
 	@echo "... code/graphClass.i"
 	@echo "... code/graphClass.s"

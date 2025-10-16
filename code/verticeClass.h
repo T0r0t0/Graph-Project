@@ -1,33 +1,10 @@
 #define verticeClass
 #ifdef verticeClass
 
-#include <iostream>
 #include <string>
 #include <vector>
-#include <map>
-#include <algorithm>
+#include "Edge.h"
 using namespace std;
-
-struct Edge{
-    double weight;
-    string name;
-    int sourceID;
-    int destID;
-
-    bool operator<(const Edge& other) const {
-        return weight < other.weight;
-    }
-
-    std::string to_string() const{
-        return "Weight: " + std::to_string(weight) +
-       "; Name: " + name +
-       "; sourceId: " + std::to_string(sourceID) +
-       "; DestId: " + std::to_string(destID)
-       + "\n";
-
-    }
-};
-
 
 class VerticeClass{
     public:
