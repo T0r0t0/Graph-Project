@@ -1,28 +1,30 @@
 #include "graphClass.h"
+#include <regex>
 
 GraphClass::GraphClass(std::string filePath){
-    std::ifstream fichier(filePath);
-    std::string ligne;
-    while (std::getline(fichier, ligne)) {
+    std::ifstream file(filePath);
+    std::string line;
+    while (std::getline(file, line)) {
 
-        std::vector<std::string> result;
-        std::stringstream ss(ligne);
-        std::string item;
+        std::regex mysep(R"(\s*,\s*)");
+        std::sregex_token_iterator it{line.cbegin(), line.cend(), mysep, -1};
+        std::sregex_token_iterator end;
 
-        while (std::getline(ss, item, ',')) { // ',' est le séparateur
-            result.push_back(item);
-        }
 
-        if (result[0] == "V"){
-            int _ID = std::stoi(result[1]);
-            double _x = std::stod(result[2]);
-            double _y = std::stod(result[3]);
+        if (*it == "V"){
+            int _ID = std::stoi(*++it);
+            double _x = std::stod(*++it);
+            double _y = std::stod(*++it);
             VerticeClass newVertice(_ID, _x, _y);
             verticeMap[_ID] = newVertice;
-        } else if (result[0] == "E"){
-            Edge newEdge = {std::stod(result[3]), result[4], std::stoi(result[1]), std::stoi(result[2])};
-            verticeMap[std::stoi(result[1])].addEdge(newEdge);
-            if (result[3] == ""){std::cout << result[4];}
+        } else if (*it == "E"){
+            int source_v_Id= std::stoi(*++it);
+            int dest_v_Id= std::stoi(*++it);
+            double weight = std::stod(*++it);
+            std::string name = *++it;
+            Edge newEdge = Edge(source_v_Id, dest_v_Id, weight, name);
+            verticeMap[dest_v_Id].addEdge(newEdge);
+            // if (result[3] == ""){std::cout << result[4];}
         }
     }
 };
