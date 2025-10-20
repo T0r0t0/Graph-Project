@@ -5,7 +5,7 @@
 
 class Edge{
     public:
-        Edge(double weight, std::string name, int sourceID, int destID);
+        Edge(int sourceID, int destID, double weight, std::string name);
         
         bool operator<(const Edge& other) const;
         std::string to_string() const;

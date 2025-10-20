@@ -1,7 +1,7 @@
 #include "Edge.h"
 #include <string>
 
-Edge::Edge(double weight, std::string name, int sourceID, int destID):
+Edge::Edge(int sourceID, int destID, double weight, std::string name):
     _weight(weight), _name(name), _sourceID(sourceID), _destID(destID) {}
 
 bool Edge::operator<(const Edge& other) const {
