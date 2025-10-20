@@ -7,13 +7,10 @@
 * [Features](#features)
 * [Installation](#installation)
 * [Usage](#usage)
-* [Contributing](#contributing)
-* [License](#license)
 
 ## Features
 
-* **Graph Representation**: Supports various graph types including directed and undirected graphs.
-* **Traversal Algorithms**: Implementations of BFS, DFS, A*, and Dijkstra for graph traversal.
+* **Traversal Algorithms**: Implementations of BFS, A*, and Dijkstra for graph traversal.
 * **Visualization**: GUI and CLI interfaces to display and interact with graph structures.
 * **CLI Interface**: Command-line interface for user interaction.
 
