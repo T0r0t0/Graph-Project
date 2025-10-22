@@ -52,7 +52,7 @@
 5. Run the application:
 
    ```bash
-   ./graph
+   ./graph.exe --start 4005 --end 659 --algorithm astar --file myGraph.txt
    ```
 
 ## Usage
