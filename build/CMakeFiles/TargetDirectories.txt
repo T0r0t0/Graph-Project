@@ -1,3 +1,0 @@
-/home/rob4/info/Graph-Project/build/CMakeFiles/graph.exe.dir
-/home/rob4/info/Graph-Project/build/CMakeFiles/edit_cache.dir
-/home/rob4/info/Graph-Project/build/CMakeFiles/rebuild_cache.dir
