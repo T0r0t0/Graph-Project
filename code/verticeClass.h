@@ -1,5 +1,6 @@
+#ifndef verticeClass
 #define verticeClass
-#ifdef verticeClass
+
 
 #include <string>
 #include <vector>
@@ -10,20 +11,26 @@ class VerticeClass{
     public:
         VerticeClass();
         VerticeClass(int _ID, double _x, double _y);
+        VerticeClass(int _ID, double _x, double _y, double weight);
 
         std::string to_string() const;
         void addEdge(const Edge newEdge);
         void sortEdge();
 
         int getID() const;
-        double getX() const;
-        double getY() const;
+        double getLong() const;
+        double getLat() const;
+        double getWeight() const;
+
+        double setWeight();
+        
         vector<Edge> getReachableVertices();
 
     private:
         int ID;
-        double x;
-        double y;
+        double Long;
+        double Lat;
+        double weight;
         vector<Edge> reachableVertices;
 };
 

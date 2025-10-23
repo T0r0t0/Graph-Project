@@ -2,16 +2,16 @@
 #include "Edge.h"
 #include <algorithm>
 
-VerticeClass::VerticeClass(): ID(0), x(0.0), y(0.0) {}
+VerticeClass::VerticeClass(): ID(0), Long(0.0), Lat(0.0) {}
 
-VerticeClass::VerticeClass(int _ID, double _x, double _y){
+VerticeClass::VerticeClass(int _ID, double _Long, double _Lat){
     ID = _ID;
-    x = _x;
-    y = _y;
+    Long = _Long;
+    Lat = _Lat;
 };
 
 std::string VerticeClass::to_string() const{
-    std::string str = "v_ID" + std::to_string(getID()) + " " +  "v_X" + std::to_string(getX()) + " " +  "v_Y" + std::to_string(getY()) + " " + "\n" + "Edges: " + "\n";
+    std::string str = "v_ID" + std::to_string(getID()) + " " +  "v_Long" + std::to_string(getLong()) + " " +  "v_Lat" + std::to_string(getLat()) + " " + "\n" + "Edges: " + "\n";
     for (int i = 0; i < reachableVertices.size(); ++i){
         str += "\t";
         str += reachableVertices[i].to_string();
@@ -29,6 +29,6 @@ void VerticeClass::sortEdge(){
 }
 
 int VerticeClass::getID() const { return ID; }
-double VerticeClass::getX() const { return x; }
-double VerticeClass::getY() const { return y; }
+double VerticeClass::getLong() const { return Long; }
+double VerticeClass::getLat() const { return Lat; }
 vector<Edge> VerticeClass::getReachableVertices() { return reachableVertices; }
