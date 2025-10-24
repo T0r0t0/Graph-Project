@@ -1,5 +1,6 @@
+#ifndef graphClass
 #define graphClass
-#ifdef graphClass
+
 
 #include <string>
 #include <vector>
@@ -8,14 +9,21 @@
 #include <sstream>
 #include <map>
 
-#include "verticeClass.h"
+#include "Vertice.h"
 
 class GraphClass{
     public:
         GraphClass(std::string filePath);
         std::string to_string() const;
+        std::vector<int> BFS(int vstartID, int vendID);
+        std::vector<int> AS(int vstartID, int vendID);
+        std::vector<int> DIJKSTRA(int vstartID, int vendID);
     private:
-        std::map<int, VerticeClass> verticeMap;
+
+        double h(double long1, double lat1, double long2, double lat2);
+
+        std::map<int, Vertice> verticeMap;
+
 };
 
 
