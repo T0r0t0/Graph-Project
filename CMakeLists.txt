@@ -10,7 +10,7 @@ include_directories(${CMAKE_SOURCE_DIR}/include)
 add_executable(graph.exe 
     code/main.cpp
     code/Edge.cpp
-    code/verticeClass.cpp
+    code/Vertice.cpp
     code/graphClass.cpp
     code/Interface.cpp
     )
