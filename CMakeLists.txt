@@ -7,6 +7,8 @@ set(CMAKE_RUNTIME_OUTPUT_DIRECTORY "${CMAKE_SOURCE_DIR}")
 
 include_directories(${CMAKE_SOURCE_DIR}/include)
 
+link_directories(${CMAKE_SOURCE_DIR}/lib)
+
 add_executable(graph.exe 
     code/main.cpp
     code/Edge.cpp
