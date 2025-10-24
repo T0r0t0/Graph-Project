@@ -26,7 +26,7 @@
 1. Clone the repository:
 
    ```bash
-   git clone https://github.com/T0r0t0/Graph-Project.git
+   git clone -b GUI --single-branch https://github.com/T0r0t0/Graph-Project.git
    cd Graph-Project
    ```
 
@@ -52,7 +52,8 @@
 5. Run the application:
 
    ```bash
-   ./graph.exe --start 4005 --end 659 --algorithm astar --file myGraph.txt
+   cd ..
+   ./graph.exe --start 86771 --end 110636 --file ./map_folder/graph_dc_area.2022-03-11.txt --algorithm bfs
    ```
 
 ## Usage
