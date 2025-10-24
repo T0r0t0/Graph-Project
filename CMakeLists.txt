@@ -12,4 +12,5 @@ add_executable(graph.exe
     code/Edge.cpp
     code/verticeClass.cpp
     code/graphClass.cpp
+    code/Interface.cpp
     )
