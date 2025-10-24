@@ -57,7 +57,7 @@
 
    ```bash
    cd ..
-   ./graph.exe --start 86771 --end 110636 --file ./map_folder/graph_dc_area.2022-03-11.txt --algorithm bfs
+   ./graph --start 86771 --end 110636 --file ./map_folder/graph_dc_area.2022-03-11.txt --algorithm bfs
    ```
 
 ## Usage
