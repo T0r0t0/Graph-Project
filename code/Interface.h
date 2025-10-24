@@ -8,10 +8,11 @@
 #include <string>
 #include "Vertice.h"
 #include "Edge.h"
+#include "graphClass.h"
 
 class Interface {
 public:
-    Interface();  // Affiche la carte une seule fois
+    Interface(GraphClass graph);  // Affiche la carte une seule fois
 
     void addVertice(double x, double y);
     void addEdge(double x1, double y1, double x2, double y2);

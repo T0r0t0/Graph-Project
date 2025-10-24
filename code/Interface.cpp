@@ -1,6 +1,7 @@
 #include "Interface.h"
 #include "graphClass.h"
 #include "Vertice.h"
+#include "SFML/Graphics.hpp"
 #include "Edge.h"
 #include <iostream>
 #include <thread>
@@ -8,7 +9,12 @@
 #include <cmath>
 
 
-Interface::Interface() : window(sf::VideoMode::getDesktopMode(), "Graph Visualization"){
+Interface::Interface(GraphClass graph) : window(sf::VideoMode::getDesktopMode(), "Graph Visualization"){
+
+    //adding all vertices and edges from the graph
+    for (auto const& [id, vertice] : graph.getVertices() ) {
+        addVertice(vertice.getX(), vertice.getY());
+    }
     drawGraph();
 }
 
@@ -51,14 +57,14 @@ void Interface::drawGraph() {
             sf::Vertex(sf::Vector2f(v1.getX(), v1.getY()), sf::Color::Black),
             sf::Vertex(sf::Vector2f(v2.getX(), v2.getY()), sf::Color::Black)
         };
-        window.draw(line, 2, sf::Lines);
+        window.draw(line, 2, sf::PrimitiveType::Lines);
     }
 
     // Dessin des sommets
     for (const auto& v : vertices) {
         sf::CircleShape point(4);
         point.setFillColor(sf::Color::Red);
-        point.setPosition(v.getX() - 4, v.getY() - 4);
+        point.setPosition(sf::Vector2f(v.getX() - 4, v.getY() - 4));
         window.draw(point);
     }
 
