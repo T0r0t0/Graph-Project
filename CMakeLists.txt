@@ -16,3 +16,9 @@ add_executable(graph.exe
     code/graphClass.cpp
     code/Interface.cpp
     )
+
+target_link_libraries(graph.exe
+    sfml-graphics
+    sfml-window
+    sfml-system
+)
