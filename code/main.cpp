@@ -4,6 +4,7 @@
 #include <CLI/CLI.hpp>
 #include <iostream>
 #include <chrono>
+#include "Interface.h"
 
 int main(int argc, char* argv[]) {
     CLI::App app{"A command-line tool to process graph data and perform pathfinding algorithms."};
@@ -37,6 +38,14 @@ int main(int argc, char* argv[]) {
     std::cout << "algorithm: " << algorithm << std::endl;
     std::cout << "file: " << file << std::endl;
 
+    if (start == -1 || end == -1){ // No start and end value are given wen only show the graph
+        std::cout << myGraph.to_string() << std::endl;
+        return 0;
+    }
+
+    Interface interface(myGraph);
+
+
     // Démarrage du chrono
     auto start_chrono = std::chrono::high_resolution_clock::now();
 
@@ -58,9 +67,4 @@ int main(int argc, char* argv[]) {
     std::cout << "Temps d'execution : " << duration.count() << " secondes\n";
     return 0;
 
-    if (start == -1 || end == -1){ // No start and end value are given wen only show the graph
-        std::cout << myGraph.to_string() << std::endl;
-    }
-
-    return 0;
 }

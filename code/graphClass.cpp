@@ -37,7 +37,7 @@ GraphClass::GraphClass(std::string filePath){
             verticeMap[source_v_Id].addEdge(newEdge);
         }
     }
-};
+}
 
 
 std::string GraphClass::to_string() const{
@@ -248,6 +248,9 @@ std::vector<int> GraphClass::AS(int vstartID, int vendID){
     return std::vector<int>{-1};
 }
 
+std::map<int, Vertice> GraphClass::getVertices() const{
+    return verticeMap;
+}
 
 double GraphClass::h(double x1, double y1, double x2, double y2){
     return std::sqrt((x1-x2)*(x1-x2) + (y1-y2)*(y1-y2));

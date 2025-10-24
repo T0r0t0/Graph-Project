@@ -18,10 +18,11 @@ class GraphClass{
         std::vector<int> BFS(int vstartID, int vendID);
         std::vector<int> AS(int vstartID, int vendID);
         std::vector<int> DIJKSTRA(int vstartID, int vendID);
+
+        std::map<int, Vertice> getVertices() const;
     private:
 
         double h(double long1, double lat1, double long2, double lat2);
-
         std::map<int, Vertice> verticeMap;
 
 };
