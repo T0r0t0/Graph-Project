@@ -1,15 +1,19 @@
 cmake_minimum_required(VERSION 3.16)
+project(graph LANGUAGES CXX)
 
-set(CMAKE_CXX_STANDARD 20)
-set(CMAKE_CXX_STANDARD_REQUIRED True)
+set(CMAKE_CXX_STANDARD 17)
+set(CMAKE_CXX_STANDARD_REQUIRED ON)
+set(CMAKE_CXX_EXTENSIONS OFF)
+
 # Place executables in the parent folder of the build
 set(CMAKE_RUNTIME_OUTPUT_DIRECTORY "${CMAKE_SOURCE_DIR}")
 
 include_directories(${CMAKE_SOURCE_DIR}/include)
 
-link_directories(${CMAKE_SOURCE_DIR}/lib)
+find_package(SFML 2.5 COMPONENTS graphics window system REQUIRED)
 
-add_executable(graph.exe 
+
+add_executable(${PROJECT_NAME} 
     code/main.cpp
     code/Edge.cpp
     code/Vertice.cpp
@@ -17,8 +21,9 @@ add_executable(graph.exe
     code/Interface.cpp
     )
 
-target_link_libraries(graph.exe
-    sfml-graphics
-    sfml-window
-    sfml-system
+target_include_directories(${PROJECT_NAME}
+    PRIVATE
+        &{PROJECT_SOURCE_DIR}/include
 )
+
+target_link_libraries(${PROJECT_NAME} PRIVATE sfml-graphics sfml-window sfml-system)
