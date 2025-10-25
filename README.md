@@ -20,12 +20,15 @@
 
 * C++17 compatible compiler
 * CMake 3.10 or higher
-* sfml 
+* sfml
+#### Windows /VSCode
+ ...
+####Linux:
    ```bash
    sudo apt install libsfml-dev  	
    ```
 
-### Steps
+### Steps with cmake
 
 1. Clone the repository:
 
@@ -59,6 +62,7 @@
    cd ..
    ./graph --start 86771 --end 110636 --file ./map_folder/graph_dc_area.2022-03-11.txt --algorithm bfs
    ```
+6. For more option you can use --help
 
 ## Usage
 
