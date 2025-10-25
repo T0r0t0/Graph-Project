@@ -12,10 +12,11 @@
 #include <cmath>
 #include "Commify.h"
 
-
+#define WINDOW_WIDTH 1000
+#define WINDOW_HEIGHT 800
 
 // Constructor: build initial drawable lists from the graph data
-Interface::Interface(GraphClass& myGraph) : _myGraph(myGraph), window(sf::VideoMode(1000,800), "Graph Visualization"){
+Interface::Interface(GraphClass& myGraph) : _myGraph(myGraph), window(sf::VideoMode(WINDOW_WIDTH, WINDOW_HEIGHT), "Graph Visualization", sf::Style::Titlebar | sf::Style::Close){
     // Initialize view to default window view
     view = window.getDefaultView();
 
@@ -26,6 +27,11 @@ Interface::Interface(GraphClass& myGraph) : _myGraph(myGraph), window(sf::VideoM
     if (font.getInfo().family.empty()) {
         std::cerr << "Font is invalid!" << std::endl;
     }
+
+    //Instruction Label definition
+    algoInstructions = sf::Text("Press 1 for BFS | 2 for Dijkstra | 3 for A*", font, 15);
+    algoInstructions.setFillColor(sf::Color::White);
+    algoInstructions.setPosition(10.f, 10.f);
 
     // Build drawable vertex and edge lists from the loaded graph
     for (const auto& p_iv : myGraph.getVerticeMap()) {
@@ -79,7 +85,6 @@ void Interface::drawGraph() {
     for (const auto& v : FinalPathVerticeList){
         window.draw(v);
     }  
-    window.display();
 }
 
 // Draw the info label in default view (not transformed)
@@ -87,9 +92,13 @@ void Interface::drawLabel(){
     if (dragging == false){
         window.setView(window.getDefaultView());
         window.draw(id_label);
+        window.draw(algoInstructions);
         window.setView(view);
-        window.display();
     }
+}
+
+void Interface::display(){
+    window.display();
 }
 
 void Interface::update(){
@@ -275,6 +284,8 @@ bool Interface::event() {
             algoName = "astar";
             update();
         }
+        else if (event.type == sf::Event::Resized)
+            window.setSize(sf::Vector2u(WINDOW_WIDTH, WINDOW_HEIGHT)); // force back to fixed size
     }
 
     // If mouse clicks occurred, map them to vertex selections

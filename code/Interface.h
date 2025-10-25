@@ -42,6 +42,8 @@ public:
     void drawLabel();        // draw info label
     void updateLabels();    //compute and update labels
     void update();        // main update loop call every function to update
+
+    void display();// display the current window content
     bool event();          // poll and handle events
     int searchVertice(sf::Vector2f MousePos); // find nearest vertex to a point
 
@@ -55,6 +57,7 @@ public:
     std::vector<sf::CircleShape> FinalPathVerticeList; // highlighted vertices along path
     sf::Vector2i lastMousePixel; // last processed mouse position (projected coords)
     sf::Text id_label; //Label to show vertex ID and more
+    sf::Text algoInstructions; //Instructions for changing algorithm
     sf::Font font; //Font for the label
 
     bool dragging = false;     // whether middle-drag panning is active
