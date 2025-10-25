@@ -208,10 +208,10 @@ bool Interface::event() {
 
     while (window.pollEvent(event)) {
         flag = true;
-        if (event.type == sf::Event::Closed)
+        if (event.type == sf::Event::Closed){
             window.close();
             return flag; // Early return on close event
-
+        }
         // Left click: record position (used as start vertex selection)
         else if (event.type == sf::Event::MouseButtonPressed && event.mouseButton.button == sf::Mouse::Left) {
             lastMousePixel = sf::Vector2i(event.mouseButton.x, event.mouseButton.y);
