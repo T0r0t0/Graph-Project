@@ -21,6 +21,7 @@
 * C++17 compatible compiler
 * CMake 3.10 or higher
 * sfml
+  https://github.com/SFML/SFML.git
 ##### Windows /VSCode
  Dans Msys
  ```bash 
