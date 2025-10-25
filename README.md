@@ -21,9 +21,9 @@
 * C++17 compatible compiler
 * CMake 3.10 or higher
 * sfml
-#### Windows /VSCode
+##### Windows /VSCode
  ...
-####Linux:
+##### Linux:
    ```bash
    sudo apt install libsfml-dev  	
    ```
