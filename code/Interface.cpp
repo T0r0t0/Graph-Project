@@ -34,7 +34,7 @@ window(sf::VideoMode(width, height), "Graph Visualization", sf::Style::Titlebar 
     }
 
     //Instruction Label definition
-    algoInstructions = sf::Text("Press 1 for BFS | 2 for Dijkstra | 3 for A*", font, 15);
+    algoInstructions = sf::Text("Press 1 for BFS | 2 for Dijkstra | 3 for A*\nStart: Left click\nEnd: Right click\nmove map: midlle click", font, 15);
     algoInstructions.setFillColor(sf::Color::White);
     algoInstructions.setPosition(10.f, 10.f);
 
