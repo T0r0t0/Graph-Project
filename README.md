@@ -22,7 +22,10 @@
 * CMake 3.10 or higher
 * sfml
 ##### Windows /VSCode
- ...
+ Dans Msys
+ ```bash 
+pacman -S mingw-w64-ucrt-x86_64-sfml
+```
 ##### Linux:
    ```bash
    sudo apt install libsfml-dev  	
