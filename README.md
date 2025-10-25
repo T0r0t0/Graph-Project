@@ -30,7 +30,7 @@
 1. Clone the repository:
 
    ```bash
-   git clone -b GUI --single-branch https://github.com/T0r0t0/Graph-Project.git
+   git clone https://github.com/T0r0t0/Graph-Project.git
    cd Graph-Project
    ```
 
