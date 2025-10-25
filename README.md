@@ -21,8 +21,12 @@
 * C++17 compatible compiler
 * CMake 3.10 or higher
 * sfml
+  https://github.com/SFML/SFML.git
 ##### Windows /VSCode
- ...
+ Msys
+ ```bash 
+pacman -S mingw-w64-ucrt-x86_64-sfml
+```
 ##### Linux:
    ```bash
    sudo apt install libsfml-dev  	
