@@ -15,6 +15,8 @@
 #include "Vertice.h"
 #include "Edge.h"
 
+#include <chrono>
+
 class Interface {
 public:
     // Construct the visual interface given a loaded GraphClass
