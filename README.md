@@ -23,7 +23,7 @@
 * sfml
   https://github.com/SFML/SFML.git
 ##### Windows /VSCode
- Dans Msys
+ Msys
  ```bash 
 pacman -S mingw-w64-ucrt-x86_64-sfml
 ```
