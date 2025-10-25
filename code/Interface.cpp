@@ -10,15 +10,22 @@
 #include <chrono>
 #define _USE_MATH_DEFINES
 #include <cmath>
-#include <chrono>
 #include "Commify.h"
 
 
 
 // Constructor: build initial drawable lists from the graph data
-Interface::Interface(GraphClass& myGraph) : _myGraph(myGraph), window(sf::VideoMode::getDesktopMode(), "Graph Visualization"){
+Interface::Interface(GraphClass& myGraph) : _myGraph(myGraph), window(sf::VideoMode(1000,800), "Graph Visualization"){
     // Initialize view to default window view
     view = window.getDefaultView();
+
+    //Load Font for Labels
+    if (!font.loadFromFile("fonts/Arimo-Bold.ttf")){
+        std::cerr << "Erreur lors du chargement de la police." << std::endl;
+    }
+    if (font.getInfo().family.empty()) {
+        std::cerr << "Font is invalid!" << std::endl;
+    }
 
     // Build drawable vertex and edge lists from the loaded graph
     for (const auto& p_iv : myGraph.getVerticeMap()) {
@@ -71,8 +78,18 @@ void Interface::drawGraph() {
     }
     for (const auto& v : FinalPathVerticeList){
         window.draw(v);
-    }
+    }  
     window.display();
+}
+
+// Draw the info label in default view (not transformed)
+void Interface::drawLabel(){
+    if (dragging == false){
+        window.setView(window.getDefaultView());
+        window.draw(id_label);
+        window.setView(view);
+        window.display();
+    }
 }
 
 void Interface::update(){
@@ -87,8 +104,7 @@ void Interface::updateLabels(){
     id_label.setString("Algorithm: " + algoName + " | Start ID: " + std::to_string(vstart_id) + " | End ID: " + std::to_string(vend_id) + " | time: " + duration + " us");
 
     sf::Vector2u windowSize = window.getSize();
-    id_label.setPosition(0.f, windowSize.y - 30.f );
-
+    id_label.setPosition(10.f, windowSize.y - 30.f );
 }
 
 // Compute and prepare the path visualization depending on selected algorithm
@@ -194,6 +210,7 @@ bool Interface::event() {
         flag = true;
         if (event.type == sf::Event::Closed)
             window.close();
+            return flag; // Early return on close event
 
         // Left click: record position (used as start vertex selection)
         else if (event.type == sf::Event::MouseButtonPressed && event.mouseButton.button == sf::Mouse::Left) {
@@ -228,7 +245,7 @@ bool Interface::event() {
             sf::Vector2i newPixel = sf::Vector2i(event.mouseMove.x, event.mouseMove.y);
             sf::Vector2f newPos = window.mapPixelToCoords(newPixel);
             sf::Vector2f delta = lastMousePos - newPos;
-            std::cout << dist(delta.x, delta.y, 0, 0)  << ", " << delta.x << ", " << delta.y << std::endl;
+            // std::cout << dist(delta.x, delta.y, 0, 0)  << ", " << delta.x << ", " << delta.y << std::endl;
 
             view.move(delta); // pan the view
             lastMousePixel = newPixel;
@@ -262,11 +279,15 @@ bool Interface::event() {
 
     // If mouse clicks occurred, map them to vertex selections
     if (leftClick){
-            vstart_id = searchVertice(window.mapPixelToCoords(lastMousePixel));
+        sf::Vector2f lastMousePos = window.mapPixelToCoords(lastMousePixel);
+        lastMousePos.y = window.getSize().y - lastMousePos.y;
+    vstart_id = searchVertice(lastMousePos);
     }
     if (rightClick){
-            vend_id = searchVertice(window.mapPixelToCoords(lastMousePixel));
-        }
+        sf::Vector2f lastMousePos = window.mapPixelToCoords(lastMousePixel);
+        lastMousePos.y = window.getSize().y - lastMousePos.y;
+        vend_id = searchVertice(lastMousePos);
+    }
     if (rightClick || leftClick){
          update();
     }

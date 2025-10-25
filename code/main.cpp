@@ -14,17 +14,19 @@ void launchGUI(GraphClass& myGraph, std::string algorithm, int start, int end){
     std::cout << "\n\nLaunching graphical interface to display the graph..." << std::endl;
     
     Interface interface(myGraph);
-    interface.algoName = algorithm; //Set l'algorithme à utiliser
+    interface.algoName = algorithm; //Set l'algorithme choisi
     interface.vstart_id = start; //Set le point de départ 
     interface.vend_id = end; //Set le point d'arrivée
 
     interface.update(); //Met à jour le path et les labels initiaux
     interface.drawGraph(); // dessine le premier visuel du graphe car on update seulement après un event
+    interface.drawLabel(); // dessine le label initial
 
     // Boucle principale de la fenêtre
     while (interface.window.isOpen()) {
-        if (interface.event()){ //Check les events et retourne true si un un event à eu lieu
+        if (interface.event()){ //Check les events et retourne true si un event à eu lieu
             interface.drawGraph(); // dessine le graphe
+            interface.drawLabel();
         }
     }
 }
@@ -95,6 +97,6 @@ int main(int argc, char* argv[]) {
     // Stop timer and print elapsed time in microseconds using Commify for readability
     auto end_chrono = std::chrono::high_resolution_clock::now();
     auto time = std::chrono::duration_cast<std::chrono::microseconds>(end_chrono - start_chrono);
-    std::cout << "TExecution Time : " << Commify(time.count()) << " us\n";
+    std::cout << "Execution Time : " << Commify(time.count()) << " us\n";
     return 0;
 }

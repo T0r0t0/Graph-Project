@@ -39,6 +39,7 @@ public:
     // Primary operations
     void drawGraph();      // draw base graph + path overlays
     void updatePath();     // compute and prepare path overlays
+    void drawLabel();        // draw info label
     void updateLabels();    //compute and update labels
     void update();        // main update loop call every function to update
     bool event();          // poll and handle events
