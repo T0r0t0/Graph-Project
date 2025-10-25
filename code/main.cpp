@@ -10,23 +10,22 @@
 #include <iostream>
 #include <chrono>
 
-void launchGUI(GraphClass& myGraph, std::string algorithm, int start, int end){
+void launchGUI(GraphClass& myGraph, std::string algorithm, int start, int end, int window_width, int window_height){
     std::cout << "\n\nLaunching graphical interface to display the graph..." << std::endl;
     
-    Interface interface(myGraph);
-    interface.algoName = algorithm; //Set l'algorithme choisi
-    interface.vstart_id = start; //Set le point de départ 
-    interface.vend_id = end; //Set le point d'arrivée
+    Interface interface(myGraph, algorithm, start, end, window_width, window_height); //Crée l'interface graphique avec les dimensions 1000x800 et les paramètres passés
 
     interface.update(); //Met à jour le path et les labels initiaux
     interface.drawGraph(); // dessine le premier visuel du graphe car on update seulement après un event
     interface.drawLabel(); // dessine le label initial
+    interface.display();
 
     // Boucle principale de la fenêtre
     while (interface.window.isOpen()) {
         if (interface.event()){ //Check les events et retourne true si un event à eu lieu
             interface.drawGraph(); // dessine le graphe
             interface.drawLabel();
+            interface.display();
         }
     }
 }
@@ -42,6 +41,10 @@ int main(int argc, char* argv[]) {
     std::string file;
     bool isLaunchGUI = false;
 
+    int window_width = 1000;
+    int window_height = 800;
+
+    app.add_flag("-g, --gui", isLaunchGUI,"Launch graphical interface to display the graph.");
     app.add_option("-s, --start", start, "Starting vertice for path search. Example: --start 0")
         ->default_val("-1");
     app.add_option("-e, --end", end, "Ending vertice for path search. Example: --end 100")
@@ -51,8 +54,11 @@ int main(int argc, char* argv[]) {
         ->default_val("astar");
     app.add_option("-f, --file", file, "Path to the graph map stored as a CSV file.")
         ->required();
-
-    app.add_flag("-g, --gui", isLaunchGUI,"Launch graphical interface to display the graph.");
+    
+    app.add_option("--width", window_width, "Window width for the graphical interface. 1000px by default.")
+        ->check(CLI::NonNegativeNumber);
+    app.add_option("--height", window_height, "Window height for the graphical interface. 800px by default.")
+        ->check(CLI::NonNegativeNumber);
 
     // Parse CLI arguments and exit on parse error
     try {
@@ -73,12 +79,12 @@ int main(int argc, char* argv[]) {
     GraphClass myGraph(file);
 
     if ((start == -1 || end == -1) ){ // If either start or end is -1, run the graphical interface instead of CLI search
-        launchGUI(myGraph, algorithm, start, end);
+        launchGUI(myGraph, algorithm, start, end, window_width, window_height);
         return 0;
     }
     if (isLaunchGUI) //Demande explicite de lancer l'interface graphique
     {
-        launchGUI(myGraph, algorithm, start, end);
+        launchGUI(myGraph, algorithm, start, end, window_width, window_height);
         return 0;
     }
 

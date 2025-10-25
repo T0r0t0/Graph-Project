@@ -12,11 +12,16 @@
 #include <cmath>
 #include "Commify.h"
 
-#define WINDOW_WIDTH 1000
-#define WINDOW_HEIGHT 800
-
 // Constructor: build initial drawable lists from the graph data
-Interface::Interface(GraphClass& myGraph) : _myGraph(myGraph), window(sf::VideoMode(WINDOW_WIDTH, WINDOW_HEIGHT), "Graph Visualization", sf::Style::Titlebar | sf::Style::Close){
+Interface::Interface(GraphClass& myGraph, std::string algo, int start, int end,int width, int height) 
+: _myGraph(myGraph),
+window_width(width),
+window_height(height), 
+algoName(algo),
+vstart_id(start),
+vend_id(end),
+window(sf::VideoMode(width, height), "Graph Visualization", sf::Style::Titlebar | sf::Style::Close){
+
     // Initialize view to default window view
     view = window.getDefaultView();
 
@@ -44,7 +49,9 @@ Interface::Interface(GraphClass& myGraph) : _myGraph(myGraph), window(sf::VideoM
             addEdge(vSource.getX(), vSource.getY(), vDest.getX(), vDest.getY());
         }
     }
+
 }
+
 
 // Create a small circle shape at the given projected coordinates and store it
 void Interface::addVertice(double x, double y) {
@@ -285,7 +292,7 @@ bool Interface::event() {
             update();
         }
         else if (event.type == sf::Event::Resized)
-            window.setSize(sf::Vector2u(WINDOW_WIDTH, WINDOW_HEIGHT)); // force back to fixed size
+            window.setSize(sf::Vector2u(window_width, window_height)); // force back to fixed size
     }
 
     // If mouse clicks occurred, map them to vertex selections

@@ -21,8 +21,8 @@
 class Interface {
 public:
     // Construct the visual interface given a loaded GraphClass
-    Interface(GraphClass& myGraph);
-
+    Interface(GraphClass& myGraph, std::string algo, int start, int end, int width, int height); 
+    
     // Helpers to create drawable primitives from graph coordinates
     void addVertice(double x, double y);
     void addEdge(double x1, double y1, double x2, double y2);
@@ -33,6 +33,8 @@ public:
 
     // SFML window/view and optional file path
     sf::RenderWindow window;
+    int window_width;
+    int window_height;
     sf::View view;
     std::string file;
 
