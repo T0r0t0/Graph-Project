@@ -17,7 +17,7 @@ add_executable(${PROJECT_NAME}
     code/main.cpp
     code/Edge.cpp
     code/Vertice.cpp
-    code/graphClass.cpp
+    code/GraphClass.cpp
     code/Interface.cpp
     code/Commify.cpp
     )
